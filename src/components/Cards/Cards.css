@@ -1,0 +1,16 @@
+.cards-wrapper{
+    margin-top: 40px;
+}
+.cards-top h1{
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 700;
+    color: black;
+}
+.cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 40px;
+    column-gap: 70px;
+    margin-top: 30px;
+}

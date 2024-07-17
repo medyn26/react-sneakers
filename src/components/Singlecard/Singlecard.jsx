@@ -1,7 +1,18 @@
 import "./Singlecard.css";
-import {LuPlus} from "react-icons/lu";
+import {useState} from "react";
+import {LuHeart, LuCheck, LuPlus} from "react-icons/lu";
 function Singlecard({singleTitle, singlePrice, img}) {
-  return ( <div className="single-card">
+  const [selected, setSelected] = useState(false);
+  const [liked, setLiked] = useState(false);
+  return ( 
+  <div className="single-card">
+    <div className="single-like">
+    <button 
+    className={liked && "liked"}
+    onClick={() => setLiked(!liked)}>
+        <LuHeart size={12} fill={liked ? "#FF8585" : "none"} color={liked && "#FF8585"}/>
+    </button>
+    </div>
     <div className="single-card__image">
       <img src={img}/>
     </div>
@@ -11,8 +22,15 @@ function Singlecard({singleTitle, singlePrice, img}) {
         <p>Цена:</p>
         <h1>{singlePrice}</h1>
       </div>
-      <button>
-        <LuPlus size={11} color="#D3D3D3" />
+      <button 
+      className={selected && "selected"} 
+      onClick={() => setSelected(!selected)}
+      >
+        {!selected ? (
+          <LuPlus size={12} color="#D3D3D3" />
+        ) : (
+        <LuCheck size={12} color="white"/>
+        )}
         </button>
     </div>
   </div>
